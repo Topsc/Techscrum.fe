@@ -1,0 +1,137 @@
+@import '../../variables.scss';
+$white: rgb(245, 245, 245);
+
+.container {
+  box-sizing: content-box;
+  width: 12%;
+  color: $white;
+  min-width: 250px;
+  background-color: var(--ds-surface, $primaryColor);
+  -webkit-clip-path: polygon(0% 0%, 0% 100%, 85% 100%, 98% 85%, 84% 55%, 98% 25%, 88% 0%);
+  clip-path: polygon(0% 0%, 0% 100%, 85% 100%, 98% 85%, 84% 55%, 98% 25%, 88% 0%);
+  max-height: 100vh;
+  padding: 30px 12px;
+  font-family: Poppins, sans-serif;
+  overflow-y: auto;
+  position: sticky;
+  top: 0;
+
+}
+
+
+.dividingLine {
+  width: 100%;
+  height: 3px;
+  background-color: $white;
+  border-radius: 2px;
+  margin: 20px 0px;
+}
+.section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+  .category {
+    border: none;
+    text-align: left;
+    background-color: transparent;
+    color: $white;
+
+    span {
+      visibility: hidden;
+      margin-right: 3px;
+    }
+    font-weight: bold;
+    font-size: 12px;
+    padding: 8px 0px;
+    margin: 0;
+    cursor: pointer;
+  }
+  .category:hover {
+    span {
+      visibility: visible;
+    }
+  }
+  .navBtn {
+    box-sizing: border-box;
+    display: flex;
+    border-radius: 4px;
+    text-decoration: inherit;
+    outline: 0px;
+    border: 0px;
+    font-size: 15px;
+    width: 100%;
+    height: 50px;
+    color: $white;
+
+    cursor: pointer;
+    background-color: transparent;
+    font-weight: 500;
+    padding: 8px 14px;
+    position: relative;
+    align-items: center;
+    svg,
+    img {
+      height: 24px;
+      width: 24px;
+      margin-right: 16px;
+    }
+
+    .pencil {
+      right: 0;
+      position: absolute;
+      border-width: 0px;
+      border-radius: 10px;
+      box-sizing: border-box;
+      font-weight: 500;
+      text-decoration: none;
+      white-space: nowrap;
+      background: none;
+      cursor: pointer;
+      padding: 0px;
+
+      .pencilLine {
+        width: 22px;
+        height: 22px;
+        display: none;
+        color: $white;
+      }
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      .pencilLine {
+        display: block;
+      }
+    }
+  }
+
+  .shortcutContent {
+    width: 150px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+.utils {
+  margin-top: 20px;
+}
+
+.shortcutModal{
+  max-width: 500px!important;
+  overflow: visible!important;
+}
+
+.shortcutImg{
+  max-width: 100px;
+  position: absolute;
+  left:0;
+  right:0;
+  margin: auto;
+  top:-50px;
+}
+
+.modalTitle{
+  font-size: 18px;
+}

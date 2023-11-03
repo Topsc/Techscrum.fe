@@ -1,0 +1,37 @@
+@use '../../variables.scss' as *;
+
+.pageContainer {
+  display: flex;
+  min-height: 100vh;
+  .sectionContainer {
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    .folderImg {
+      align-self: center;
+    }
+  }
+  table {
+    font-size: 14px;
+  }
+  table,
+  th,
+  td {
+    border-collapse: collapse;
+  }
+  tr {
+    border-bottom: 2px solid rgb(128, 128, 128, 0.3);
+  }
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.tableHeader {
+  text-align: left;
+  padding: 0.5em 0;
+  color: gray;
+}

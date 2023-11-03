@@ -1,0 +1,19 @@
+@use '../../../variables.scss' as *;
+
+.tableRow {
+  line-height: 3em;
+  border-bottom: 2px solid gray;
+  .product {
+    display: flex;
+    align-items: center;
+    .logoIcon {
+      width: 2em;
+      aspect-ratio: 1;
+      display: block;
+    }
+  }
+  .invoiceBtn {
+    color: $primaryColor;
+    text-decoration: none;
+  }
+}

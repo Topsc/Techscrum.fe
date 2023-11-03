@@ -1,0 +1,77 @@
+@import '../../../variables.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  .footerContent {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .footerContent .cancelButton {
+    margin-left: 4px;
+    border-width: 0;
+    border-radius: 3px;
+    font-size: inherit;
+    font-style: normal;
+    font-family: inherit;
+    font-weight: 600;
+    transition: background 0.1s ease-out 0s,
+      box-shadow 0.15s cubic-bezier(0.47, 0.03, 0.49, 1.38) 0s;
+    white-space: nowrap;
+    background: none;
+    cursor: pointer;
+    height: 2.28571em;
+    line-height: 2.28571em;
+    padding: 0px 6px;
+    justify-content: center;
+    color: var(--ds-text, #42526e);
+  }
+
+  .footerContent .cancelButton:hover {
+    background-color: #efefef;
+  }
+
+  .footerContent .cancelButton span {
+    transition: opacity 0.3s ease 0s;
+    opacity: 1;
+    margin: 0px 2px;
+  }
+
+  .footerContent .cancelButton:active {
+    color: #1d0fe4 !important;
+    background-color: #a4b5ed;
+    filter: brightness(1.2);
+  }
+
+  .saveButton {
+    border-width: 0px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    display: inline-flex;
+    font-size: inherit;
+    font-style: normal;
+    font-family: inherit;
+    font-weight: 700;
+    transition: background 0.1s ease-out 0s,
+      box-shadow 0.15s cubic-bezier(0.47, 0.03, 0.49, 1.38) 0s;
+    background: var(--ds-background-brand-bold, $primaryColor);
+    cursor: pointer;
+    height: 2.28571em;
+    line-height: 2.28571em;
+    padding: 0px 10px;
+    color: #fff;
+  }
+
+  .saveButton:hover {
+    filter: brightness(1.2);
+  }
+
+  .footerContent .saveButton:active {
+    background-color: var(--ds-background-brand-bold, $primaryColor);
+    filter: grayscale(0.2);
+  }
+}

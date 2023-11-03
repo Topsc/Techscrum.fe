@@ -1,0 +1,28 @@
+$base-font-size: 14px;
+
+.container {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+  margin-left: 3px;
+  .userContainer {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    margin-right: 11px;
+    .avatar {
+      background-image: url('https://secure.gravatar.com/avatar/6bae91566240c3f5cdccb4cdc5afb2c5?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEL-3.png');
+      border-radius: 50%;
+      background-position: center center;
+      background-size: cover;
+      height: 32px;
+      width: 32px;
+      align-self: flex-start;
+      min-width: 32px;
+      margin-right: 10px;
+    }
+    .p {
+      padding: 15px;
+    }
+  }
+}

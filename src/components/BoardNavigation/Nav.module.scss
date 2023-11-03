@@ -1,0 +1,13 @@
+@import "../../variables.scss";
+
+.container {
+  width: 10%;
+  color: var(--ds-text-subtle, white);
+  min-width: 240px;
+  background-color: var(--ds-surface, $primaryColor);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 30px 8px 8px 8px;
+  min-height: 100vh;
+}

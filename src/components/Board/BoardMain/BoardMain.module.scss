@@ -1,0 +1,201 @@
+@import '../../../variables.scss';
+
+.boardMainContainer {
+  position: relative;
+  margin-left: 3%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  max-width: 1920px;
+  overflow-x: scroll;
+}
+
+.columnsContainer {
+  display: flex;
+  justify-content: space-between;
+  margin: 7px;
+}
+
+.lastColumnContainer {
+  width: 270px;
+  justify-content: center;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%233D5278FF' stroke-width='4' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+  span {
+    white-space: nowrap;
+    align-self: center;
+    color: #3d5278;
+    font-weight: bold;
+  }
+  display: none;
+}
+
+.column {
+  position: relative;
+  padding-top: 40px;
+  width: 270px;
+  min-height: 800px;
+  background: transparent;
+  border-radius: 5px;
+}
+
+.columnInfo {
+  left: 5%;
+  position: absolute;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 20px;
+  h1.name {
+    font-size: 18px;
+    line-height: 1.14286;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--ds-text-subtlest, black);
+  }
+
+  h1.taskNum {
+    font-size: 18px;
+    line-height: 1.14286;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: $primaryColor;
+  }
+}
+
+.avatorIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.card {
+  min-height: '50px';
+  box-sizing: border-box;
+  padding: 12px;
+  max-width: 270px;
+  border-radius: 15px!important;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 10px 10px;
+  margin-top: 10px;
+  box-shadow: var(
+    --ds-shadow-raised,
+    0 1px 1px rgba(23, 43, 77, 0.2),
+    0 0 1px rgba(23, 43, 77, 0.2)
+  );
+  transition: background-color 140ms ease-in-out 0s, color 140ms ease-in-out 0s;
+  background-color: var(--ds-surface-raised, #ffffff);
+  color: var(--ds-text, #172b4d);
+  filter: none;
+
+  span {
+    margin-bottom: 8px;
+    overflow-wrap: break-word;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 6px;
+
+    .tag {
+      padding: 5px 15px;
+      background-color: $primaryColor;
+      border-radius: 12px;
+      span {
+        color: #E4D6FD;
+        font-size: 12px;
+        overflow-wrap: break-word;
+        margin: 0;
+      }
+    }
+  }
+
+  p {
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  .cardFooter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 28px;
+
+    .cardFooterLeft {
+      min-width: 0px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-right: 4px;
+
+      img {
+        width: 16px;
+        height: 16px;
+        vertical-align: text-bottom;
+      }
+
+      span {
+        margin-top: 7px;
+        margin-left: 3px;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--ds-text-subtle, #7a869a);
+      }
+    }
+
+    .cardFooterRight {
+      height: 24px;
+      width: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: transform 200ms ease 0s, opacity 200ms ease 0s;
+      margin: 2px;
+
+      img {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+
+  &:hover {
+    background: #ebecf0;
+  }
+
+  &:nth-child(2) {
+    margin-top: 50px;
+  }
+}
+
+.cardAddNewCard {
+  background: transparent;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%233D5278FF' stroke-width='4' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+  height: 6%;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  p {
+    text-align: center;
+    color: #3d5278;
+  }
+  &:hover {
+    background: transparent;
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%233D5278FF' stroke-width='4' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+  }
+}
+
+.cardAddNewCardHide {
+  display: none;
+}

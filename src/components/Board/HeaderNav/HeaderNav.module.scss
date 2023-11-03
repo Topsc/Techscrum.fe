@@ -1,0 +1,49 @@
+.navLayout {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding-left: 3%;
+}
+
+.navLayout ol {
+  display: flex;
+  padding: 0;
+}
+
+.navLayout ol li {
+  display: flex;
+}
+
+.navLayout ol li a {
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.1s ease-out 0s, box-shadow 0.15s cubic-bezier(0.47, 0.03, 0.49, 1.38) 0s;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.navLayout ol > li:not(:last-child)::after {
+  content: '/';
+  padding: 0px 8px;
+  text-align: center;
+  width: 8px;
+  color: #6b778c;
+}
+
+.navLayout ol a span {
+  transition: opacity 0.3s ease 0s;
+  font-size: inherit;
+  font-weight: 500;
+  color: #6b778c;
+  opacity: 1.2;
+}
+
+.navLayout ol a span:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+.navLayout h1 {
+  margin: 0;
+  font-weight: 500;
+}

@@ -1,0 +1,49 @@
+
+.container {
+  margin-top: 50px;
+  position: relative;
+  padding: 8px 8px 16px;
+  box-sizing: border-box;
+  font-size: 12px;
+  text-decoration: none;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  min-height: 24px;
+  font-style: normal;
+  font-weight: 500;
+
+  .containerSpan {
+    margin: 6px;
+    margin-top: 3px;
+    color: var(--ds-text-subtlest, #6b778c);
+    font-size: 12px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    button {
+      margin-top: 5px;
+      border-width: 0px;
+      border-radius: 3px;
+      box-sizing: border-box;
+      display: inline-flex;
+      font-size: inherit;
+      font-style: normal;
+      font-family: inherit;
+      font-weight: 600;
+      background: none;
+      cursor: pointer;
+      line-height: inherit;
+      color: var(--ds-text-subtle, #6b778c) !important;
+      transition: opacity 0.3s ease 0s;
+      opacity: 1;
+
+      &:hover {
+        opacity: 0.8;
+        text-decoration: underline;
+      }
+    }
+  }
+}

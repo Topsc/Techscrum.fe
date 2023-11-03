@@ -1,0 +1,37 @@
+@import '../../../pages/ReportPage/styles/variables.scss';
+$colorBorder: rgb(218, 216, 220);
+$ticketTitleColor: rgb(102, 106, 133);
+$colorLightGray: rgb(245, 246, 254);
+
+.dailyScrumTicket {
+  border: 1px solid $colorBorder;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-block-start: $size-14;
+  gap: $size-14;
+  p {
+    font-weight: bold;
+    font-size: 14px;
+  }
+  .ticketTitle {
+    color: $ticketTitleColor;
+    font-weight: bold;
+    margin: 0;
+    font-size: $size-18;
+  }
+  .progressRange {
+    margin-block-start: $size-14;
+
+    input {
+      width: 50%;
+      cursor: pointer;
+    }
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,112 @@
+.editor {
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  cursor: text;
+  padding: 12px 12px 0px 12px;
+  border-radius: 2px;
+  margin-bottom: 10px;
+  background: #f5f5f5;
+  width: 100%;
+  min-height: 140px;
+  min-width: 270px;
+  position: relative;
+
+  .editorFooter {
+    display: flex;
+    height: 30px;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 12px;
+    &:hover {
+      cursor: default;
+    }
+  }
+
+  .insertImage {
+    width: 20px;
+    display: flex;
+    align-items: flex-start;
+    height: 23px;
+    margin-right: 15.67px;
+    label:hover {
+      cursor: pointer;
+    }
+    input {
+      visibility: hidden;
+      width: 0;
+      height: 0;
+    }
+  }
+  .mention {
+    display: flex;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .discardButton {
+    color: #42526e;
+    border: none;
+    max-width: 88px;
+    height: 30px;
+    margin: 0px 13.83px;
+    padding: 8px 24px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .publishButton {
+    max-width: 88px;
+    height: 30px;
+    background: #3563e9;
+    border: none;
+    color: #fff;
+    padding: 8px 24px;
+    border-radius: 4px;
+    &:hover {
+      cursor: pointer;
+    }
+    &[disabled] {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.editor :global(.public-DraftEditor-content) {
+  min-height: 84px;
+}
+
+.editor :global(.public-DraftEditorPlaceholder-root) {
+  color: #ababab;
+  position: absolute;
+}
+
+.readOnly {
+  min-height: auto;
+  padding: unset;
+  border: none;
+  background-color: unset;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: -0.01em;
+  color: #868686;
+}
+
+.readOnly :global(.public-DraftEditor-content) {
+  min-height: auto;
+}
+
+.readOnly span[data-testid='mentionText'] {
+  background: #d4eaff;
+  border-radius: 4px;
+  padding: 0px 8px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: -0.01em;
+  color: #235789;
+}

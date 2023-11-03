@@ -1,0 +1,22 @@
+.cardTitle {
+  max-width: 100%;
+  word-break: break-word;
+  line-height: 1.16667;
+  color: var(--ds-text, #172b4d);
+  label {
+    input {
+      font-size: 1.5em;
+      font-style: inherit;
+      line-height: 1.16667;
+      font-weight: 600;
+      width: 100%;
+      margin: 0px;
+      color: var(--ds-text, #172b4d);
+      border: none;
+      &:hover {
+        background: var(--ds-background-neutral-subtle-hovered, #ebecf0);
+        cursor: pointer;
+      }
+    }
+  }
+}
