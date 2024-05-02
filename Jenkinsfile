@@ -46,6 +46,5 @@ pipeline {
                     sh 'aws cloudfront create-invalidation --distribution-id  "${DISTRIBUTION_ID}" --paths "${PATHS_TO_INVALIDATE}"'
              }
           }
-      } 
+       } 
    }
-}
