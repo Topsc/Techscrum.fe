@@ -41,7 +41,7 @@ pipeline {
             // }
 
             steps {
-               withVault(configuration: [timeout: 60, vaultCredentialId: 'vault-jenkins-role', vaultUrl: 'http://vault.hangzhao.net'], vaultSecrets: [[path: 'secrets/techscrum', secretValues: [[vaultKey: 'AWS_ACCESS_KEY_ID'], [vaultKey: 'AWS_SECRET_ACCESS_KEY'], [vaultKey: 'AWS_DEFAULT_REGION'],[vaultKey: 'REACT_APP_BACKEND_BASE_URL'],[vaultKey: 'GENERATE_SOURCEMAP']]]]) {
+               withVault(configuration: [timeout: 60, vaultCredentialId: 'vault-jenkins-role', vaultUrl: 'http://3.25.111.118:8200'], vaultSecrets: [[path: 'secrets/techscrum', secretValues: [[vaultKey: 'AWS_ACCESS_KEY_ID'], [vaultKey: 'AWS_SECRET_ACCESS_KEY'], [vaultKey: 'AWS_DEFAULT_REGION'],[vaultKey: 'REACT_APP_BACKEND_BASE_URL'],[vaultKey: 'GENERATE_SOURCEMAP']]]]) {
                     sh "aws s3 sync ./build s3://www.hangzhao.net/"
                     // clean cloudfront cache
                     sh 'aws cloudfront create-invalidation --distribution-id  "${DISTRIBUTION_ID}" --paths "${PATHS_TO_INVALIDATE}"'
