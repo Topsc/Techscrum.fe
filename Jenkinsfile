@@ -6,7 +6,7 @@ pipeline {
     }
 
     environment {
-        // GENERATE_SOURCEMAP = credentials('GENERATE_SOURCEMAP')
+         // GENERATE_SOURCEMAP = credentials('GENERATE_SOURCEMAP')
         // REACT_APP_BACKEND_URL = credentials('REACT_APP_BACKEND_URL')
         DISTRIBUTION_ID = 'E1O2ZPYOQGSOFW'  
         PATHS_TO_INVALIDATE = '/*'
