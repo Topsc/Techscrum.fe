@@ -51,21 +51,43 @@ pipeline {
             }
         }
         
-        stage('Deploy') {
+    //     stage('Deploy') {
             
-            // environment {
-            //     AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
-            //     AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
-            //     AWS_DEFAULT_REGION = credentials('AWS_DEFAULT_REGION')
-            // }
+    //         // environment {
+    //         //     AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
+    //         //     AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+    //         //     AWS_DEFAULT_REGION = credentials('AWS_DEFAULT_REGION')
+    //         // }
 
+    //         steps {
+    //            withVault(configuration: [timeout: 60, vaultCredentialId: 'vault-jenkins-role', vaultUrl: 'http://3.104.223.100:8200'], vaultSecrets: [[path: 'secrets/techscrum', secretValues: [[vaultKey: 'AWS_ACCESS_KEY_ID'], [vaultKey: 'AWS_SECRET_ACCESS_KEY'], [vaultKey: 'AWS_DEFAULT_REGION'],[vaultKey: 'REACT_APP_BACKEND_BASE_URL'],[vaultKey: 'GENERATE_SOURCEMAP']]]]) {
+    //                 sh "aws s3 sync ./build s3://www.hangzhao.net/"
+    //                 // clean cloudfront cache
+    //                 sh 'aws cloudfront create-invalidation --distribution-id  "${DISTRIBUTION_ID}" --paths "${PATHS_TO_INVALIDATE}"'
+    //          }
+    //       }
+    //    } 
+
+    stage('Deploy') {
             steps {
-               withVault(configuration: [timeout: 60, vaultCredentialId: 'vault-jenkins-role', vaultUrl: 'http://3.104.223.100:8200'], vaultSecrets: [[path: 'secrets/techscrum', secretValues: [[vaultKey: 'AWS_ACCESS_KEY_ID'], [vaultKey: 'AWS_SECRET_ACCESS_KEY'], [vaultKey: 'AWS_DEFAULT_REGION'],[vaultKey: 'REACT_APP_BACKEND_BASE_URL'],[vaultKey: 'GENERATE_SOURCEMAP']]]]) {
-                    sh "aws s3 sync ./build s3://www.hangzhao.net/"
-                    // clean cloudfront cache
-                    sh 'aws cloudfront create-invalidation --distribution-id  "${DISTRIBUTION_ID}" --paths "${PATHS_TO_INVALIDATE}"'
-             }
-          }
-       } 
+                script {
+                    def currentBranch = env.BRANCH_NAME
+                    
+                    if (currentBranch in ['main', 'uat', 'dev']) {
+                      withVault(configuration: [timeout: 60, vaultCredentialId: 'vault-jenkins-role', vaultUrl: 'http://3.104.223.100:8200'], vaultSecrets: [[path: 'secrets/techscrum', secretValues: [[vaultKey: 'AWS_ACCESS_KEY_ID'], [vaultKey: 'AWS_SECRET_ACCESS_KEY'], [vaultKey: 'AWS_DEFAULT_REGION'],[vaultKey: 'REACT_APP_BACKEND_BASE_URL'],[vaultKey: 'GENERATE_SOURCEMAP']]]]) {
+                        sh 'npm run build'
+                        
+                        if (currentBranch == 'main') {
+                            sh "aws s3 sync ./build s3://www.crankbit.com/"
+                        } else {
+                            sh "aws s3 sync ./build s3://www.${currentBranch}.crankbit.com/"
+                        }
+                        
+                        sh "aws cloudfront create-invalidation --distribution-id '${env."${currentBranch}_distribution_id"}' --paths '${PATHS_TO_INVALIDATE}'"
+                        }
+                    }
+                }
+            }
+        }
    }
 }
